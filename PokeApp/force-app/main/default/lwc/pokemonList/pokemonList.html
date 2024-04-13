@@ -1,0 +1,73 @@
+<template>
+	<lightning-card title="Lista de Pokemones">
+		<div class="slds-card__body slds-card__body_inner">
+			<div class="slds-grid slds-wrap slds-grid_align-space slds-text-heading_small div-filtros">
+				<div class="div-ancho">
+					<lightning-combobox
+						name="Tipos"
+						label="Tipos (Máximo 2)"
+						placeholder="Filtrar por Tipos"
+						options={tiposOpciones}
+						onchange={handleTiposChange}
+						class="slds-var-m-around_small slds-var-p-horizontal_small"
+					></lightning-combobox>
+					<template for:each={todosLosTipos} for:item="tipo">
+						<lightning-pill key={tipo} label={tipo} name={tipo} onremove={handleTiposRemove} class="slds-var-m-horizontal_large"></lightning-pill>
+					</template>
+				</div>
+				<div class="div-ancho">
+					<lightning-input 
+						type="search"
+						onchange={handleInputChange}
+						label="Buscar por nombre"
+						placeholder="Buscar un Pokémon"
+						class="slds-var-m-around_small slds-var-p-horizontal_small">
+					</lightning-input>
+				</div>
+				<div class="div-ancho">
+					<lightning-combobox
+						name="Generación"
+						label="Generación"
+						placeholder="Filtrar por Generación"
+						options={generacionOpciones}
+						onchange={handleGeneracionChange}
+						class="slds-var-m-around_small slds-var-p-horizontal_small">
+					</lightning-combobox>
+				</div>
+			</div>
+			<lightning-layout>
+				<p class="slds-var-m-vertical_medium slds-var-m-horizontal_large slds-text-heading_small"><b>Cantidad de Pokemones: </b>{numeroDePokemones}</p> 
+			</lightning-layout>
+
+			<div slot="header" class="slds-var-m-around_medium">
+				<c-pokemon-paginacion pokemonespag={pokemones} onupdate={handlerUpdatePokemon}></c-pokemon-paginacion>
+			</div>
+			
+			<template if:true={pokemonesVisibles}>
+				<!-- CARDS -->
+				<div class="slds-align_absolute-center">
+					<div class="slds-grid slds-wrap slds-grid_align-space slds-div-contenedor-ancho">
+						<template for:each={pokemonesVisibles} for:item="pokemon">
+							<div key={pokemon.Id}>
+								<c-pokemon-tile pokemon={pokemon} ></c-pokemon-tile>
+							</div>
+						</template>
+					</div>
+				</div>
+				<template if:false={tieneResultados}>
+					<div class="slds-align_absolute-center slds-var-m-vertical_small slds-text-heading_large">
+						<div class="slds-align_absolute-center exampleHolder">
+							<lightning-spinner alternative-text="Loading"></lightning-spinner>
+						</div>
+					</div>
+				</template>
+			</template>
+
+			<template if:true={error}>
+				<div class="slds-text-color_error">
+					Ocurrió un error consulte a su administrador
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>

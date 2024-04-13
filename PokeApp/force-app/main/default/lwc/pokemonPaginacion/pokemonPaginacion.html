@@ -1,0 +1,20 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-button label="Anterior"
+            icon-name="utility:chevronleft"
+            onclick={handlerPrevius}
+            disabled={deshabilitarBotonPrevius}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow">
+            <p class="slds-text-align_center">Pagina {paginaActual} de {paginasTotal}</p>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Siguiente"
+            icon-name="utility:chevronright"
+            onclick={handlerNext}
+            disabled={deshabilitarBotonNext}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    
+</template>

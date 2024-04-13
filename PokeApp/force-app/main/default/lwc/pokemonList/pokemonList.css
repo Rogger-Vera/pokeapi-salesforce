@@ -1,0 +1,21 @@
+.div-ancho{
+    width: 270px;
+}
+
+.div-filtros{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.exampleHolder{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.slds-div-contenedor-ancho{
+    width: 1150px;
+}

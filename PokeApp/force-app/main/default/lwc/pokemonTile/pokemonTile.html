@@ -1,0 +1,28 @@
+<template>
+    <lightning-card class="slds-text-heading_small">
+        <div class="slds-box slds-div_card-formato">
+            <img
+            class="slds-align_absolute-center slds-formato_imagen" 
+            src={pokemon.Imagen__c} 
+            alt={pokemon.Name}
+            onclick={navigateToRecordViewPage}
+            >
+            <div class="slds-var-m-top_small slds-text-body_small">
+                <div class="slds-text-align_center slds-text-heading_medium">
+                    <span class="slds-var-m-around_small"><b>#{pokemon.ExtId__c}</b></span>
+                    <span class="slds-var-m-around_small"><b>{pokemon.Name}</b></span>
+                </div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-align_absolute-center">
+                        <span class="slds-var-p-around_x-small">{pokemon.Peso__c} kg</span>
+                    </div>
+                    <div class="slds-col slds-align_absolute-center">
+                        <span class="slds-var-p-around_x-small">{pokemon.Altura__c} m</span>
+                    </div>
+                </div>
+                <p class="slds-var-p-around_x-small">Generación <span class="slds-var-m-horizontal_large slds-var-p-around_x-small">{pokemon.Generacion__c}</span></p>
+                <p class="slds-var-p-around_x-small">TIpos <span class="slds-var-m-left_xx-large slds-var-p-horizontal_small slds-var-p-vertical_xx-small slds-estilo_tipos">{pokemon.Tipos__c}</span></p>
+            </div>
+        </div>
+    </lightning-card>
+</template>

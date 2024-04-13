@@ -1,0 +1,29 @@
+.slds-div_card-formato{
+	width: 300px;
+	border-radius: 10px;
+	box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.2);
+	transition: box-shadow 0.4s;
+	cursor: default;
+	border: none;
+	outline: none;
+}
+.slds-div_card-formato:hover{
+	box-shadow: 0 0 1.5em rgba(0, 0, 0, 0.2);
+}
+.slds-formato_imagen{
+	width: 100%;
+	max-width: 280px;
+	cursor: pointer;
+	border: none;
+	transition: 0.4s;
+}
+.slds-div_card-formato .slds-formato_imagen:hover{
+	transform: scale(1.2) translateY(-8%);
+	z-index: -10;
+}
+.slds-estilo_tipos{
+	background-color: #707070;
+	color: #fff;
+	border-radius: 6px;
+	margin-left: 70px;
+}
